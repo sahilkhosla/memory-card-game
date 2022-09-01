@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+// pre work
+// 1 - install MUI
+// 2 - add jsconfig.json
+// 3 - clean the default files
+
+import { Box, Grid, Typography } from "@mui/material";
+import { TodoListContainer } from "components/TodoListContainer";
+import React from "react";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container={true}>
+      <Grid item xs={12}>
+        <Box sx={{ padding: '16px' }}>
+          <Typography
+            variant="h4"
+            align="center"          
+          >
+            Todo List  
+          </Typography>   
+        </Box> 
+      </Grid>
+      <Grid item xs={1} md={2} lg={3} />
+      <Grid item xs={10} md={8} lg={6} >
+        <TodoListContainer />
+      </Grid>
+      <Grid item xs={1} md={2} lg={3} />
+    </Grid>
   );
 }
 
