@@ -17,7 +17,9 @@ export const TodoListContainer = () => {
   useEffect(() => {
     if (firstLoad) {
       const tasksFromStorage = localStorage.getItem('tasks');
-      setTasks(JSON.parse(tasksFromStorage));
+      if (tasksFromStorage) {
+        setTasks(JSON.parse(tasksFromStorage));  
+      }    
       setFirstLoad(false);
     }
   }, [firstLoad, setFirstLoad])
