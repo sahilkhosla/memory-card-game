@@ -17,24 +17,23 @@ export const TodoList = ({ tasks, updateTask, deleteTask, toggleTask }) => {
     >
       <List>
         {
-          tasks.map((task) => {
-            if ((filter === 'active' && !task.deleted)
+          tasks.filter((task) => {
+            return (filter === 'active' && !task.deleted)
               || (filter === 'deleted'&& task.deleted)
               || (filter === 'completed' && task.done)
-              || (filter) === 'all') {
-              return (
-                <TodoListItem 
-                  key={task.id}
-                  id={task.id}
-                  done={task.done}
-                  description={task.description}
-                  updateTask={updateTask}
-                  toggleTask={toggleTask}
-                  deleteTask={deleteTask}
-                />
-              )
-            }       
-          })
+              || (filter) === 'all'              
+          }).map(task => (
+              <TodoListItem 
+                key={task.id}
+                id={task.id}
+                done={task.done}
+                description={task.description}
+                updateTask={updateTask}
+                toggleTask={toggleTask}
+                deleteTask={deleteTask}
+              />
+            )
+          )
         }
       </List>
       <Box sx={{ padding: 1 }}>
@@ -68,5 +67,3 @@ export const TodoList = ({ tasks, updateTask, deleteTask, toggleTask }) => {
     </Paper>
   )
 }
-
-{/* <TodoListItem checked={false} description="test task" /> */}
