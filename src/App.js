@@ -3,7 +3,7 @@
 // 2 - add jsconfig.json
 // 3 - clean the default files
 
-import { AppBar, Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { TodoListContainer } from "components/TodoListContainer";
 import React from "react";
 
