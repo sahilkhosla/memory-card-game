@@ -1,12 +1,6 @@
-// pre work
-// 1 - install MUI
-// 2 - add jsconfig.json
-// 3 - clean the default files
-
 import { Box, Grid, Typography } from "@mui/material";
-import { TodoListContainer } from "components/TodoListContainer";
+import { GameContainer } from "components/GameContainer";
 import React from "react";
-
 
 function App() {
   return (
@@ -17,13 +11,13 @@ function App() {
             variant="h4"
             align="center"
           >
-            Todo List
+            Memory Game
           </Typography>   
         </Box> 
       </Grid>
       <Grid item xs={1} md={2} lg={3} />
       <Grid item xs={10} md={8} lg={6} >
-        <TodoListContainer />
+        <GameContainer />
       </Grid>
       <Grid item xs={1} md={2} lg={3} />
     </Grid>
