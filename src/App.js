@@ -3,7 +3,8 @@
 // 2 - add jsconfig.json
 // 3 - clean the default files
 
-import { Box, Grid, Typography } from "@mui/material";
+import { AppBar, Box, Grid, Toolbar, Typography } from "@mui/material";
+import Header from "components/Header";
 import { TodoListContainer } from "components/TodoListContainer";
 import React from "react";
 
@@ -15,9 +16,9 @@ function App() {
         <Box sx={{ padding: '16px' }}>
           <Typography
             variant="h4"
-            align="center"          
+            align="center"
           >
-            Todo List  
+            Todo List
           </Typography>   
         </Box> 
       </Grid>

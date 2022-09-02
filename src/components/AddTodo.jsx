@@ -6,7 +6,6 @@ export const AddTodo = ({ addTask }) => {
 
   const handleOnChange = (event) => {
     setValue(event.target.value);
-    console.log('onChange...');
   }
 
   const handleOnSubmit = (event) => {

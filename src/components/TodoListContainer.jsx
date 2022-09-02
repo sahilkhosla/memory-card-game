@@ -16,10 +16,8 @@ export const TodoListContainer = () => {
 
   useEffect(() => {
     if (firstLoad) {
-      const tasksFromStorage = localStorage.getItem('tasks');
-      if (tasksFromStorage) {
-        setTasks(JSON.parse(tasksFromStorage));  
-      }    
+      const tasksFromStorage = localStorage.getItem('tasks') || '[]';
+      setTasks(JSON.parse(tasksFromStorage));  
       setFirstLoad(false);
     }
   }, [firstLoad, setFirstLoad])
@@ -38,7 +36,6 @@ export const TodoListContainer = () => {
       }
     ]
     updateStorage(updatedTasks);
-    console.log(updatedTasks);
   }
 
   const updateTask = (id, description) => {
@@ -49,7 +46,6 @@ export const TodoListContainer = () => {
       return task
     })
     updateStorage(updatedTasks);
-    console.log(updatedTasks);
   }
 
   const toggleTask = (id) => {
@@ -60,7 +56,6 @@ export const TodoListContainer = () => {
       return task
     })
     updateStorage(updatedTasks);
-    console.log(updatedTasks);
   }
   
 
@@ -72,7 +67,6 @@ export const TodoListContainer = () => {
       return task
     })
     updateStorage(updatedTasks);
-    console.log(updatedTasks);
   }
   
   return (

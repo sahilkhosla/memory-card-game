@@ -6,10 +6,22 @@ export const TodoList = ({ tasks, updateTask, deleteTask, toggleTask }) => {
 
   const [filter, setFilter] = useState('active');
 
-  const onButtonClick = (filterName) => () => {
-    setFilter(filterName)
+  const onButtonClick = (filterType) => () => {
+    setFilter(filterType);
   }
-  
+
+  const getFilteredTasks = () => {
+    return tasks.filter(task => {
+      return (
+        !task.deleted && (
+          filter === 'active' && !task.done
+          || filter === 'completed' && task.done
+          || filter === 'all'
+        )      
+      ) 
+    })
+  }
+ 
   return (
     <Paper
       square={true}
@@ -17,12 +29,8 @@ export const TodoList = ({ tasks, updateTask, deleteTask, toggleTask }) => {
     >
       <List>
         {
-          tasks.filter((task) => {
-            return (filter === 'active' && !task.deleted)
-              || (filter === 'deleted'&& task.deleted)
-              || (filter === 'completed' && task.done)
-              || (filter) === 'all'              
-          }).map(task => (
+          getFilteredTasks().map((task) => {
+            return (
               <TodoListItem 
                 key={task.id}
                 id={task.id}
@@ -33,7 +41,7 @@ export const TodoList = ({ tasks, updateTask, deleteTask, toggleTask }) => {
                 deleteTask={deleteTask}
               />
             )
-          )
+          })
         }
       </List>
       <Box sx={{ padding: 1 }}>
@@ -49,12 +57,6 @@ export const TodoList = ({ tasks, updateTask, deleteTask, toggleTask }) => {
             variant={filter === 'active' ? 'outlined' : 'text'}
           >
             Active
-          </Button>
-          <Button 
-            onClick={onButtonClick('deleted')}
-            variant={filter === 'deleted' ? 'outlined' : 'text'}
-          >
-            Deleted
           </Button>
           <Button 
             onClick={onButtonClick('completed')}
