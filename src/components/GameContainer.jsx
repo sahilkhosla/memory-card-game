@@ -18,11 +18,6 @@ const types = [
 ]
 
 const getGameData = () => {
-  // get types
-  // load the types in a new array x 2 (as an object)
-  // shuffle the objects
-  // return the array with 16 cards
-
   const gameData = [];
   const typesForGameData = [...types, ...types];
   let shuffledTypes = arrayShuffle(typesForGameData);
